@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Smythe';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Smythe'), url('Smythe-Regular.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Smythe', sans-serif;
+}
+
+#container {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    background: #F5F5F5;
+}
+
+
+/* layout */
+header{
+    display: flex;
+    flex-direction: column;
+    background-image: url("images/header-photo.png");
+    background-size: cover;
+    padding: 46px;
+    color:#FFF;
+}
+
+
+/* typography */
+#title {
+    margin: 0 ;
+    font-size: 39px;
+    height: 24px;
+    line-height: 24px;
+}
+
+#subtitle {
+    margin: 20px 0 0 0;
+    font-size: 22px;
+    line-height: 15px;
+}
