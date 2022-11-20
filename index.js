@@ -1,15 +1,49 @@
 import { createMenuArray } from "./data.js";
 
 const menuData = createMenuArray()
-
+const orderSummary = document.getElementById("order-summary")
 document.addEventListener("click", function(e){
     if (e.target.dataset.addItem) {
-        addItem()
+        addItem(e.target.dataset.addItem)
     }
 })
 
+let orderedItems = []
+
 function addItem(itemId) {
-    console.log("added")
+    const itemToAdd = menuData.filter(function(item){
+        return item.id === Number(itemId)
+    })[0]
+    orderedItems.push(itemToAdd)
+    console.log("orderedItems", orderedItems)
+
+    renderOrderSummary()
+}
+
+function renderOrderSummary() {
+    const orderSummaryHtml = `
+    <p id="summary-title">Your Order</p>
+    ${orderedItemsListHtml()}
+    <p id="total-price">Total price:</p>
+    <p class="item-price">$</p>
+    <button id="complete-order">Complete order</button>
+    `
+    orderSummary.innerHTML = orderSummaryHtml
+    orderSummary.style.display = "block"
+}
+
+function orderedItemsListHtml(){
+    let orderedItemsList = ""
+    orderedItems.forEach(function(item){
+        orderedItemsList += `
+        <div class="item-summary">
+            <p class="item-name">${item.name}</p>
+            <p class="remove">remove</p>
+            <p class="item-price">$${item.price}</p>
+        </div>
+        `
+    })
+    return orderedItemsList
 }
 
 
