@@ -36,6 +36,11 @@ header {
     display: block;
 }
 
+#order-summary {
+    display: none;
+    padding: 45px 46px 55px 46px;
+}
+
 /* typography */
 #title {
     margin: 0 ;
