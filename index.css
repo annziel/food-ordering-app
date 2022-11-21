@@ -27,7 +27,7 @@ header {
     flex-direction: column;
     background-image: url("images/header-photo.png");
     background-size: cover;
-    padding: 46px 0 61px 46px;
+    padding: 46px 0 55px 46px;
     color:#FFF;
 }
 
@@ -38,21 +38,21 @@ header {
 
 #order-summary {
     display: none;
-    padding: 45px 46px 55px 46px;
+    padding: 0 46px 55px 46px;
 }
 
 /* typography */
 #title {
-    margin: 0 ;
+    margin: 0;
     font-size: 39px;
     height: 24px;
     line-height: 24px;
 }
 
 #subtitle {
-    margin: 20px 0 0 0;
+    margin: 16px 0 0 0;
     font-size: 22px;
-    line-height: 15px;
+    line-height: 22px;
 }
 
 /* menu item */
@@ -67,10 +67,11 @@ header {
 .item-emoji {
     align-self: center;
     width: 70px;
-    height: 89px;
+    height: 90px;
     opacity: 72%;
     font-family: "Inter";
-    font-size: 79px;   
+    font-size: 77px;
+    line-height: 98px;
 }
 
 .item-description {
@@ -81,32 +82,97 @@ header {
 .item-name {
     font-size: 28px;
     margin: 0;
+    height: 28px;
 }
 
 .item-ingredients {
     font-size: 16px;
     color: #8B8B8B;
-    margin: 8px 0;
+    margin: 9px 0 8px 0;
 }
 
 .item-price {
     font-size: 20px;
+    line-height: 24px;
     margin: 0;
 }
 
 .add-item {
     display: block;
     align-self: baseline;
+    margin-top: 7px;
     margin-left: auto;
     width: 50px;
     height: 50px;
     border: 1.5px solid #DEDEDE;
     border-radius: 50%;
     background: none;
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-size: 32px;
     line-height: 32px;
     font-weight: 200;
     color: #3C3C3C;
     text-align: center;
+    cursor: pointer;
+}
+
+/* order summary */
+#summary-title {
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 65px;
+}
+
+#summary-title, #total-price {
+    font-size: 28px;
+    height: 28px;
+}
+
+#sum-to-pay {
+    border-top: 2px solid #393333;
+    padding-top: 15px;
+    color: #0E0E0E;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    height: 38px;
+    font-size: 28px;
+}
+
+.remove {
+    font-family: "Verdana", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    height: 12px;
+    color: #BBB;
+}
+
+.item-summary, #sum-to-pay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-summary {
+    margin-bottom: 22px;
+    gap: 13px;
+    height: 28px;
+}
+
+#order-summary .item-price {
+   margin-left: auto;
+}
+
+#complete-order {
+    width: 100%;
+    height: 60px;
+    background-color: #16DB99;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-family: "Verdana", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
 }

@@ -24,8 +24,10 @@ function renderOrderSummary() {
     const orderSummaryHtml = `
     <p id="summary-title">Your Order</p>
     ${orderedItemsListHtml()}
-    <p id="total-price">Total price:</p>
-    <p class="item-price">$</p>
+    <div id="sum-to-pay">
+        <p id="total-price">Total price:</p>
+        <p class="item-price">$</p>
+    </div>
     <button id="complete-order">Complete order</button>
     `
     orderSummary.innerHTML = orderSummaryHtml
