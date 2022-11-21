@@ -144,6 +144,7 @@ header {
     font-size: 12px;
     height: 12px;
     color: #BBB;
+    cursor: pointer;
 }
 
 .item-summary, #sum-to-pay {

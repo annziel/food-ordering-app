@@ -2,9 +2,13 @@ import { createMenuArray } from "./data.js";
 
 const menuData = createMenuArray()
 const orderSummary = document.getElementById("order-summary")
+
 document.addEventListener("click", function(e){
     if (e.target.dataset.addItem) {
         addItem(e.target.dataset.addItem)
+    }
+    else if (e.target.dataset.remove) {
+        removeItem(e)
     }
 })
 
@@ -38,16 +42,25 @@ function renderOrderSummary() {
 
 function orderedItemsListHtml(){
     let orderedItemsList = ""
+    let itemNumber = -1
     orderedItems.forEach(function(item){
+        itemNumber += 1
         orderedItemsList += `
         <div class="item-summary">
             <p class="item-name">${item.name}</p>
-            <p class="remove">remove</p>
+            <p class="remove" data-remove="${itemNumber}"">remove</p>
             <p class="item-price">$${item.price}</p>
         </div>
         `
     })
     return orderedItemsList
+}
+
+function removeItem(e) {
+    let itemIndex = Number(e.target.dataset.remove)
+    orderedItems.splice(itemIndex, 1)
+
+    renderOrderSummary()
 }
 
 
