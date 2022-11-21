@@ -2,6 +2,7 @@ import { createMenuArray } from "./data.js";
 
 const menuData = createMenuArray()
 const orderSummary = document.getElementById("order-summary")
+const container = document.getElementById("container")
 
 document.addEventListener("click", function(e){
     if (e.target.dataset.addItem) {
@@ -37,7 +38,7 @@ function renderOrderSummary() {
             }, 0)}
         </p>
     </div>
-    <button id="complete-order">Complete order</button>
+    <button class="go-next" id="complete-order">Complete order</button>
     `
     orderSummary.innerHTML = orderSummaryHtml
     orderSummary.style.display = "block"
@@ -66,11 +67,40 @@ function removeItem(e) {
     renderOrderSummary()
 }
 
+
 function showPaymentModal() {
+    createPaymentModal()
+    container.style.background = "linear-gradient(#fff, #BDBDBD, #fff)"
+}
+
+function createPaymentModal() {
     const paymentModal = document.createElement("div")
-    document.getElementById("container").append(paymentModal)
+    container.append(paymentModal)
     paymentModal.className = "payment-modal"
-    paymentModal.style.display = "block"
+    paymentModal.innerHTML = `
+        <h2>Enter card details</h2>
+        <form>
+            <input
+                type="text"
+                name="buyerName"
+                placeholder="Enter your name"
+                required
+            >
+            <input
+                type="number"
+                name="cardNumber"
+                placeholder="Enter card number"
+                required
+            >
+            <input
+                type="number"
+                name="cardCvv"
+                placeholder="Enter CVV"
+                required
+            >
+            <button type="submit" class="go-next">Pay</button>
+        </form>
+    `
 }
 
 
