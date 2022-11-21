@@ -15,8 +15,6 @@ function addItem(itemId) {
         return item.id === Number(itemId)
     })[0]
     orderedItems.push(itemToAdd)
-    console.log("orderedItems", orderedItems)
-
     renderOrderSummary()
 }
 
@@ -26,7 +24,11 @@ function renderOrderSummary() {
     ${orderedItemsListHtml()}
     <div id="sum-to-pay">
         <p id="total-price">Total price:</p>
-        <p class="item-price">$</p>
+        <p class="item-price">
+            $${orderedItems.reduce(function(acc, item){
+                return acc + item.price
+            }, 0)}
+        </p>
     </div>
     <button id="complete-order">Complete order</button>
     `
