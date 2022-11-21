@@ -10,6 +10,9 @@ document.addEventListener("click", function(e){
     else if (e.target.dataset.remove) {
         removeItem(e)
     }
+    else if (e.target.id === "complete-order") {
+        showPaymentModal()
+    }
 })
 
 let orderedItems = []
@@ -61,6 +64,13 @@ function removeItem(e) {
     orderedItems.splice(itemIndex, 1)
 
     renderOrderSummary()
+}
+
+function showPaymentModal() {
+    const paymentModal = document.createElement("div")
+    document.getElementById("container").append(paymentModal)
+    paymentModal.className = "payment-modal"
+    paymentModal.style.display = "block"
 }
 
 
