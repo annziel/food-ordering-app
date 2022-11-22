@@ -73,13 +73,14 @@ function showPaymentModal() {
     container.style.background = "linear-gradient(#fff, #BDBDBD, #fff)"
 }
 
+const paymentModal = document.createElement("div")
+
 function createPaymentModal() {
-    const paymentModal = document.createElement("div")
     container.append(paymentModal)
     paymentModal.className = "payment-modal"
     paymentModal.innerHTML = `
         <h2>Enter card details</h2>
-        <form>
+        <form id="payment-form">
             <input
                 type="text"
                 name="buyerName"
@@ -98,11 +99,33 @@ function createPaymentModal() {
                 placeholder="Enter CVV"
                 required
             >
-            <button type="submit" class="go-next">Pay</button>
+            <button type="submit" class="go-next" id="pay-btn">Pay</button>
         </form>
     `
+
+    const paymentForm = document.getElementById("payment-form")
+    paymentForm.addEventListener("submit", function(e){
+        e.preventDefault()
+        showMessage(paymentForm)
+    })
 }
 
+function showMessage(form) {
+    const paymentData = new FormData(form)
+
+    paymentModal.style.display = "none";
+    document.getElementById("order-summary").style.display = "none"
+    container.style.background = "#FFF"
+    
+    const message = document.createElement("div")
+    container.append(message)
+    message.className = "message-box"
+    message.innerHTML = `
+        <p>
+            Thanks, ${paymentData.get("buyerName")}! Your order is on its way!
+        </p>
+    `
+}
 
 function render() {
     let menuHtml = ""
