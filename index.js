@@ -27,15 +27,16 @@ function addItem(itemId) {
 }
 
 function renderOrderSummary() {
+    const totalPrice = orderedItems.reduce(function(acc, item){
+        return acc + item.price
+    }, 0)
     const orderSummaryHtml = `
     <p id="summary-title">Your Order</p>
     ${orderedItemsListHtml()}
     <div id="sum-to-pay">
         <p id="total-price">Total price:</p>
         <p class="item-price">
-            $${orderedItems.reduce(function(acc, item){
-                return acc + item.price
-            }, 0)}
+            $${totalPrice}
         </p>
     </div>
     <button class="go-next" id="complete-order">Complete order</button>
@@ -88,13 +89,17 @@ function createPaymentModal() {
                 required
             >
             <input
-                type="number"
+                type="tel"
+                inputmode="numeric"
+                pattern="[0-9\\s]{13,19}"
                 name="cardNumber"
                 placeholder="Enter card number"
                 required
             >
             <input
-                type="number"
+                type="tel"
+                inputmode="numeric"
+                pattern="[0-9]{3,4}"
                 name="cardCvv"
                 placeholder="Enter CVV"
                 required
@@ -113,10 +118,10 @@ function createPaymentModal() {
 function showMessage(form) {
     const paymentData = new FormData(form)
 
-    paymentModal.style.display = "none";
-    document.getElementById("order-summary").style.display = "none"
+    paymentModal.style.display = "none"
+    orderSummary.style.display = "none"
     container.style.background = "#FFF"
-    
+
     const message = document.createElement("div")
     container.append(message)
     message.className = "message-box"
