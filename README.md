@@ -1,6 +1,6 @@
 [<img src="images/restaurant-header.png" alt="restaurant app header">]()
 
-Sample Food Ordering App built as a solo project after completing module 5 of [The Frontend Developer Career Path](https://scrimba.com/learn/frontend) on Scrimba. It won't deliver any food (or beer), but you can [check it out]() to see what I learned recently during the course!
+### Sample Food Ordering App built as a solo project after completing module 5 of [The Frontend Developer Career Path](https://scrimba.com/learn/frontend) on Scrimba. It won't deliver any food (or beer), but you can [check it out](https://annziel.github.io/food-ordering-app/) to see what I learned recently during the course!
 
 ## What you can do:
 Surprisingly... you can make your order! There are three options to choose from, and you can add as many burgers as you wish. Also, feel free to change your mind and remove any items you're no longer interested in. To finalize your order, you should make your "payment".
