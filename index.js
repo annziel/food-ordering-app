@@ -30,6 +30,7 @@ function renderOrderSummary() {
     const totalPrice = orderedItems.reduce(function(acc, item){
         return acc + item.price
     }, 0)
+
     const orderSummaryHtml = `
     <p id="summary-title">Your Order</p>
     ${orderedItemsListHtml()}
@@ -53,7 +54,7 @@ function orderedItemsListHtml(){
         orderedItemsList += `
         <div class="item-summary">
             <p class="item-name">${item.name}</p>
-            <p class="remove" data-remove="${itemNumber}"">remove</p>
+            <p class="remove" data-remove="${itemNumber}">remove</p>
             <p class="item-price">$${item.price}</p>
         </div>
         `

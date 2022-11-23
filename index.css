@@ -41,7 +41,7 @@ header {
     padding: 0 46px 55px 46px;
 }
 
-/* typography */
+/* inside header */
 #title {
     margin: 0;
     font-size: 39px;
@@ -237,7 +237,6 @@ input {
 }
 
 .message-box p {
-
     font-size: 32px;
     color: #065F46;
 }
